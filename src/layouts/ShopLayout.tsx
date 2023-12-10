@@ -7,9 +7,9 @@ export default function ShopLayout() {
   return (
     <div className="shop-layout">
       <Header />
-      <div className="shop-layout__content">
+      <main className="shop-layout__content">
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 }

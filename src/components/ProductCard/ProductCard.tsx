@@ -1,10 +1,10 @@
 import { useCartStore } from '../../store/cart/cart';
-import { Product } from '../../types/product.interface';
+import { ProductInterface } from '../../types/product.interface';
 import CartItemControls from '../CartItemControls/CartItemControls';
 
 import './ProductCard.scss';
 
-export default function ProductCard(props: { product: Product }) {
+export default function ProductCard(props: { product: ProductInterface }) {
   const { product } = props;
   const imageHref = `https://cataas.com/cat/${product.id}?&type=square`;
   const productInCart = useCartStore((state) =>

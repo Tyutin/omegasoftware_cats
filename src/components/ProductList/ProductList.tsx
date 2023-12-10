@@ -1,9 +1,9 @@
-import { Product } from '../../types/product.interface';
+import { ProductInterface } from '../../types/product.interface';
 import ProductCard from '../ProductCard/ProductCard';
 
 import './ProductList.scss';
 
-export default function ProductList(props: { products: Product[] }) {
+export default function ProductList(props: { products: ProductInterface[] }) {
   const { products } = props;
   return (
     <ul className="product-list">
