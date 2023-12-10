@@ -1,0 +1,22 @@
+@import '../../assets/styles/variables.scss';
+
+.cart-page {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  &__total-price {
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__total-price-number {
+    color: $CART_ORANGE;
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 5px;
+  }
+}

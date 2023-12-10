@@ -1,3 +1,20 @@
+import CartItemList from '../../components/CartItemList/CartItemList';
+import { useCartStore } from '../../store/cart/cart';
+
+import './CartPage.scss';
+
 export default function CartPage() {
-  return <div>CartPage</div>;
+  const products = useCartStore((state) => state.products);
+  const totalCartPrice = products.reduce((acc, curr) => {
+    return acc + curr.count * curr.price;
+  }, 0);
+  return (
+    <div className="cart-page">
+      <CartItemList products={products} />
+      <span className="cart-page__total-price">
+        Сумма заказа:{' '}
+        <span className="cart-page__total-price-number">{totalCartPrice}₽</span>
+      </span>
+    </div>
+  );
 }

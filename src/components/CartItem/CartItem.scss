@@ -1,0 +1,28 @@
+@import '../../assets/styles/variables.scss';
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 6px 0px rgba(34, 60, 80, 0.2);
+  overflow: hidden;
+
+  &:hover {
+    background-color: #f8f8f8;
+  }
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+  }
+
+  &__total-price {
+    font-weight: bold;
+    color: $CART_ORANGE;
+  }
+}

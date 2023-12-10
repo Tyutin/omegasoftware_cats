@@ -1,0 +1,36 @@
+@import '../../assets/styles/variables.scss';
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 6px 6px 10px 3px rgba(208, 205, 221, 0.5);
+  border: 1px solid #fff;
+  transition: all .3s ease;
+
+  &:hover {
+    box-shadow: none;
+    border: 1px solid #4980DB;
+  }
+
+  &__image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  &__price {
+    text-align: right;
+  }
+
+  &__add-to-cart {
+    height: 40px;
+    background-color: $CART_ORANGE;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+  }
+}
