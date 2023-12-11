@@ -4,39 +4,47 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import './Pagination.scss';
 import useDebounce from '../../hooks/useDebounce';
+import { useProductStore } from '../../store/product/product';
 
-type PaginationProps = {
-  paginationCount: number;
-  currentPage: number;
-  setCurrentPage: (pageNumber: number) => void;
-};
-
-export default function Pagination(props: PaginationProps) {
-  const { paginationCount, currentPage, setCurrentPage } = props;
+export default function Pagination() {
+  const currentPageNumber = useProductStore((state) => state.currentPageNumber);
+  const paginationCount = useProductStore((state) => state.paginationCount);
+  const setCurrentPageNumber = useProductStore(
+    (state) => state.setCurrentPageNumber
+  );
 
   const inputRef = useRef<HTMLInputElement>(null);
   const handleInputClick = () => {
     inputRef.current?.select();
   };
-
-  const [inputValue, setInputValue] = useState(currentPage);
+  const [inputValue, setInputValue] = useState(currentPageNumber);
 
   const onChangePageInput = (event: ChangeEvent<HTMLInputElement>) => {
     const value = Number.parseInt(event.target.value.replace(/[^0-9]/g, ''));
     if (Number.isNaN(value)) {
-      setInputValue(currentPage);
+      setInputValue(currentPageNumber);
       return;
     }
     const valueToSet =
-      value > paginationCount ? paginationCount : value < 1 ? 1 : value;
+      value > paginationCount() ? paginationCount() : value < 1 ? 1 : value;
     setInputValue(valueToSet);
   };
 
   const debounceInputValue = useDebounce<number>(inputValue, 800);
 
   useEffect(() => {
-    setCurrentPage(debounceInputValue);
-  }, [debounceInputValue, setCurrentPage]);
+    setCurrentPageNumber(debounceInputValue);
+  }, [debounceInputValue, setCurrentPageNumber]);
+
+  const incrementPageNumber = () => {
+    setCurrentPageNumber(currentPageNumber + 1);
+    setInputValue(currentPageNumber + 1);
+  };
+
+  const decrementPageNumber = () => {
+    setCurrentPageNumber(currentPageNumber - 1);
+    setInputValue(currentPageNumber - 1);
+  };
 
   return (
     <div className="pagination">
@@ -44,10 +52,10 @@ export default function Pagination(props: PaginationProps) {
         <li className="pagination__element">
           <button
             className={classNames('pagination__button', {
-              pagination__button_disabled: currentPage === 1,
+              pagination__button_disabled: currentPageNumber === 1,
             })}
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPageNumber === 1}
+            onClick={() => decrementPageNumber()}
           >
             <IoIosArrowBack size={20} />
           </button>
@@ -56,7 +64,7 @@ export default function Pagination(props: PaginationProps) {
           <input
             type="text"
             value={inputValue}
-            size={paginationCount.toString().length}
+            size={paginationCount().toString().length}
             className="pagination__input"
             onChange={onChangePageInput}
             ref={inputRef}
@@ -67,15 +75,16 @@ export default function Pagination(props: PaginationProps) {
           <span>/</span>
         </li>
         <li className="pagination__element">
-          <span>{paginationCount}</span>
+          <span>{paginationCount()}</span>
         </li>
         <li className="pagination__element">
           <button
             className={classNames('pagination__button', {
-              pagination__button_disabled: currentPage === paginationCount,
+              pagination__button_disabled:
+                currentPageNumber === paginationCount(),
             })}
-            disabled={currentPage === paginationCount}
-            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={currentPageNumber === paginationCount()}
+            onClick={() => incrementPageNumber()}
           >
             <IoIosArrowForward size={20} />
           </button>

@@ -26,6 +26,10 @@
 
     &_disabled {
       cursor: not-allowed;
+
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
 }
