@@ -25,7 +25,6 @@ export default function ProductCard(props: { product: ProductInterface }) {
         className="product-card__image"
       />
       <span className="product-card__price">
-        Цена:{' '}
         {productInCart?.price || productInFavorites?.price || product.price}₽
       </span>
       <FavoriteProductControl product={product} />

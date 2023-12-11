@@ -4,7 +4,7 @@ import { ProductInterface } from '../../types/product.interface'
 export type ProductStore = {
   currentPageProducts: ProductInterface[]
   currentPageNumber: number
-  totalProductsCount: number
+  totalProductsCount: number | null
   productRequestLimit: number
   paginationCount: () => number
   setCurrentPageNumber: (newCurrentPageNumber: number) => void
