@@ -1,0 +1,35 @@
+@import '../../assets/styles/variables.scss';
+
+.button {
+  height: 40px;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all .3s ease;
+
+  &:hover {
+    background-color: #dedede;
+  }
+
+  &_theme_orange {
+    border: none;
+    background-color: $CART_ORANGE;
+    color: #fff;
+
+    &:hover {
+      background-color: $CART_ORANGE_HOVER;
+    }
+  }
+
+  &_theme_blue {
+    border: none;
+    background-color: $FAVORITES_BLUE;
+    color: #fff;
+
+    &:hover {
+      background-color: $FAVORITES_BLUE_HOVER;
+    }
+  }
+}

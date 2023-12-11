@@ -3,8 +3,6 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import Pagination from '../../components/Pagination/Pagination';
 import { useProductStore } from '../../store/product/product';
 
-import './MainPage.scss';
-
 export default function MainPage() {
   const currentPageProducts = useProductStore(
     (state) => state.currentPageProducts
@@ -12,7 +10,7 @@ export default function MainPage() {
   const error = useProductStore((state) => state.error);
 
   return (
-    <div className="main-page">
+    <div className="page">
       {error ? (
         <ErrorMessage
           error={error}

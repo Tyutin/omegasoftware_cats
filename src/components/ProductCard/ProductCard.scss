@@ -24,13 +24,4 @@
   &__price {
     text-align: right;
   }
-
-  &__add-to-cart {
-    height: 40px;
-    background-color: $CART_ORANGE;
-    border: none;
-    border-radius: 12px;
-    color: #fff;
-    cursor: pointer;
-  }
 }

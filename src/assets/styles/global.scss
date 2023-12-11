@@ -31,3 +31,8 @@ body {
 ul {
   list-style: none;
 }
+
+.page {
+  display: flex;
+  flex-direction: column;
+}

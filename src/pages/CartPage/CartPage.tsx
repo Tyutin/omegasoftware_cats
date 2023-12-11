@@ -9,7 +9,7 @@ export default function CartPage() {
     return acc + curr.count * curr.price;
   }, 0);
   return (
-    <div className="cart-page">
+    <div className="page cart-page">
       <CartItemList products={products} />
       <span className="cart-page__total-price">
         Сумма заказа:{' '}
