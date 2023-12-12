@@ -1,19 +1,19 @@
-import { useCartStore } from '../../store/cart/cart';
 import { FaTrash } from 'react-icons/fa6';
 
 import './CartItemControls.scss';
+import { useBoundStore } from '../../store/useBoundStore';
 
 export default function CartItemControls(props: {
   productId: string;
   withRemove?: boolean;
 }) {
   const { productId, withRemove } = props;
-  const productInCart = useCartStore((state) =>
-    state.products.find((item) => item.id === productId)
+  const productInCart = useBoundStore((state) =>
+    state.cartProducts.find((item) => item.id === productId)
   );
-  const incrementItemInCart = useCartStore((state) => state.incrementItem);
-  const decrementItemInCart = useCartStore((state) => state.decrementItem);
-  const removeItemInCart = useCartStore((state) => state.removeItem);
+  const incrementItemInCart = useBoundStore((state) => state.incrementItem);
+  const decrementItemInCart = useBoundStore((state) => state.decrementItem);
+  const removeItemInCart = useBoundStore((state) => state.removeItem);
   return (
     <>
       <div className="cart-item-controls">

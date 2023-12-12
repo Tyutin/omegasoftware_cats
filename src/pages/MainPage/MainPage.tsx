@@ -1,13 +1,13 @@
 import ProductList from '../../components/ProductList/ProductList';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import Pagination from '../../components/Pagination/Pagination';
-import { useProductStore } from '../../store/product/product';
+import { useBoundStore } from '../../store/useBoundStore';
 
 export default function MainPage() {
-  const currentPageProducts = useProductStore(
+  const currentPageProducts = useBoundStore(
     (state) => state.currentPageProducts
   );
-  const error = useProductStore((state) => state.error);
+  const error = useBoundStore((state) => state.productDataError);
 
   return (
     <div className="page">

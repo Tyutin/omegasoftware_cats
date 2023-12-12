@@ -1,10 +1,10 @@
 import CartItemList from '../../components/CartItemList/CartItemList';
-import { useCartStore } from '../../store/cart/cart';
+import { useBoundStore } from '../../store/useBoundStore';
 
 import './CartPage.scss';
 
 export default function CartPage() {
-  const products = useCartStore((state) => state.products);
+  const products = useBoundStore((state) => state.cartProducts);
   const totalCartPrice = products.reduce((acc, curr) => {
     return acc + curr.count * curr.price;
   }, 0);

@@ -1,8 +1,8 @@
 import ProductList from '../../components/ProductList/ProductList';
-import { useFavoriteStore } from '../../store/favorite/favorite';
+import { useBoundStore } from '../../store/useBoundStore';
 
 export default function FavoritesPage() {
-  const favoriteProducts = useFavoriteStore((state) => state.products);
+  const favoriteProducts = useBoundStore((state) => state.favoriteProducts);
   return (
     <div className="page">
       {favoriteProducts.length ? (

@@ -4,12 +4,12 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import './Pagination.scss';
 import useDebounce from '../../hooks/useDebounce';
-import { useProductStore } from '../../store/product/product';
+import { useBoundStore } from '../../store/useBoundStore';
 
 export default function Pagination() {
-  const currentPageNumber = useProductStore((state) => state.currentPageNumber);
-  const paginationCount = useProductStore((state) => state.paginationCount);
-  const setCurrentPageNumber = useProductStore(
+  const currentPageNumber = useBoundStore((state) => state.currentPageNumber);
+  const paginationCount = useBoundStore((state) => state.paginationCount);
+  const setCurrentPageNumber = useBoundStore(
     (state) => state.setCurrentPageNumber
   );
 

@@ -1,5 +1,4 @@
-import { useCartStore } from '../../store/cart/cart';
-import { useFavoriteStore } from '../../store/favorite/favorite';
+import { useBoundStore } from '../../store/useBoundStore';
 import { ProductInterface } from '../../types/product.interface';
 import Button from '../Button/Button';
 import CartItemControls from '../CartItemControls/CartItemControls';
@@ -10,13 +9,13 @@ import './ProductCard.scss';
 export default function ProductCard(props: { product: ProductInterface }) {
   const { product } = props;
   const imageHref = `https://cataas.com/cat/${product.id}?&type=square`;
-  const productInCart = useCartStore((state) =>
-    state.products.find((item) => item.id === product.id)
+  const productInCart = useBoundStore((state) =>
+    state.cartProducts.find((item) => item.id === product.id)
   );
-  const productInFavorites = useFavoriteStore((state) =>
-    state.products.find((item) => item.id === product.id)
+  const productInFavorites = useBoundStore((state) =>
+    state.favoriteProducts.find((item) => item.id === product.id)
   );
-  const addProductToCart = useCartStore((state) => state.addItem);
+  const addProductToCart = useBoundStore((state) => state.addItem);
   return (
     <div className="product-card">
       <img
