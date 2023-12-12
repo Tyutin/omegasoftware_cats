@@ -18,10 +18,17 @@
   &__image {
     width: 200px;
     height: 200px;
-    margin: 0 auto;
   }
 
   &__price {
     text-align: right;
+  }
+
+  &__open-modal-button {
+    display: flex;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
   }
 }

@@ -10,11 +10,19 @@ export default function CartPage() {
   }, 0);
   return (
     <div className="page cart-page">
-      <CartItemList products={products} />
-      <span className="cart-page__total-price">
-        Сумма заказа:{' '}
-        <span className="cart-page__total-price-number">{totalCartPrice}₽</span>
-      </span>
+      {products.length ? (
+        <>
+          <CartItemList products={products} />
+          <span className="cart-page__total-price">
+            Сумма заказа:{' '}
+            <span className="cart-page__total-price-number">
+              {totalCartPrice}₽
+            </span>
+          </span>
+        </>
+      ) : (
+        <span>Корзина пуста</span>
+      )}
     </div>
   );
 }

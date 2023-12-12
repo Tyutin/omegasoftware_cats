@@ -5,7 +5,7 @@ import './CartItem.scss';
 
 export default function CartItem(props: { product: ProductInCartInterface }) {
   const { product } = props;
-  const imageHref = `https://cataas.com/cat/${product.id}?&width=100&height=100`;
+  const imageHref = `https://cataas.com/cat/${product.id}?&type=square`;
   return (
     <div className="cart-item">
       <img

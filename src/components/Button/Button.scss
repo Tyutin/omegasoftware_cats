@@ -10,7 +10,7 @@
   transition: all .3s ease;
 
   &:hover {
-    background-color: #dedede;
+    background-color: $GRAY_HOVER;
   }
 
   &_theme_orange {

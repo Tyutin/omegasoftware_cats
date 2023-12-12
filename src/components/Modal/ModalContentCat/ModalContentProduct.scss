@@ -1,0 +1,33 @@
+.modal-content-product {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+
+  &__image {
+    max-height: 80%;
+    object-fit: contain;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tag-list {
+    display: flex;
+    column-gap: 5px;
+  }
+
+  &__tag-element {
+    padding: 5px 8px;
+    border-radius: 3px;
+    background-color: #12c312;
+    color: #fff;
+    line-height: 1;
+  }
+
+  &__loading-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}

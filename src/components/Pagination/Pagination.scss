@@ -1,3 +1,5 @@
+@import '../../assets/styles/variables.scss';
+
 .pagination {
   width: 100%;
   display: flex;
@@ -21,7 +23,7 @@
     transition: all .3s ease;
 
     &:hover {
-      background-color: #dedede;
+      background-color: $GRAY_HOVER;
     }
 
     &_disabled {
