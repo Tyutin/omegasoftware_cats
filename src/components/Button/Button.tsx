@@ -8,19 +8,20 @@ type ButtonProps = {
   additionalClasses?: string | string[];
 };
 
-export default function Button(props: ButtonProps) {
-  const { text, clickHandler, theme, additionalClasses } = props;
-  const classes = Array.isArray(additionalClasses)
-    ? additionalClasses.join(' ')
-    : !!additionalClasses
-    ? additionalClasses
-    : '';
+export default function Button({
+  text,
+  clickHandler,
+  theme,
+  additionalClasses,
+}: ButtonProps) {
   return (
     <button
       className={classNames(
         'button',
-        theme ? `button_theme_${theme}` : '',
-        classes
+        {
+          [`button_theme_${theme}`]: theme,
+        },
+        additionalClasses
       )}
       onClick={clickHandler}
     >

@@ -3,10 +3,11 @@ import CartItem from '../CartItem/CartItem';
 
 import './CartItemList.scss';
 
-export default function CartItemList(props: {
+type CartItemListProps = {
   products: ProductInCartInterface[];
-}) {
-  const { products } = props;
+};
+
+export default function CartItemList({ products }: CartItemListProps) {
   return (
     <ul className="cart-item-list">
       {products.map((product) => {

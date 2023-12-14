@@ -8,8 +8,11 @@ import ReactLoading from 'react-loading';
 
 import './ProductCard.scss';
 
-export default function ProductCard(props: { product: ProductInterface }) {
-  const { product } = props;
+type ProductCardProps = {
+  product: ProductInterface;
+};
+
+export default function ProductCard({ product }: ProductCardProps) {
   const imageHref = `https://cataas.com/cat/${product.id}?&type=square`;
   const productInCart = useBoundStore((state) =>
     state.cartProducts.find((item) => item.id === product.id)

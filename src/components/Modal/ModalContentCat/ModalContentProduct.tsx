@@ -4,10 +4,14 @@ import ReactLoading from 'react-loading';
 import './ModalContentProduct.scss';
 import { useState } from 'react';
 
-export default function ModalContentProduct(props: {
+type ModalContentProductProps = {
   product: ProductInterface;
-}) {
-  const { id, price, tags } = props.product;
+};
+
+export default function ModalContentProduct({
+  product,
+}: ModalContentProductProps) {
+  const { id, price, tags } = product;
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const productImage = new Image();
   productImage.src = `https://cataas.com/cat/${id}`;

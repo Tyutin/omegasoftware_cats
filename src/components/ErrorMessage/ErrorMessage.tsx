@@ -4,11 +4,12 @@ import './ErrorMessage.scss';
 import { useState } from 'react';
 import classNames from 'classnames';
 
-export default function ErrorMessage(props: {
+type ErrorMessageProps = {
   error: AxiosError;
   alertText: string;
-}) {
-  const { error, alertText } = props;
+};
+
+export default function ErrorMessage({ error, alertText }: ErrorMessageProps) {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
 
   return (

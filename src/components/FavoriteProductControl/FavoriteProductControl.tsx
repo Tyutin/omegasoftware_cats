@@ -4,10 +4,13 @@ import './FavoriteProductControl.scss';
 import Button from '../Button/Button';
 import { useBoundStore } from '../../store/useBoundStore';
 
-export default function FavoriteProductControl(props: {
+type FavoriteProductControlProps = {
   product: ProductInterface;
-}) {
-  const { product } = props;
+};
+
+export default function FavoriteProductControl({
+  product,
+}: FavoriteProductControlProps) {
   const productInFavorites = useBoundStore((state) =>
     state.favoriteProducts.find((el) => el.id === product.id)
   );

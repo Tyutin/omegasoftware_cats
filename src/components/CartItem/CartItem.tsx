@@ -3,20 +3,22 @@ import CartItemControls from '../CartItemControls/CartItemControls';
 
 import './CartItem.scss';
 
-export default function CartItem(props: { product: ProductInCartInterface }) {
-  const { product } = props;
-  const imageHref = `https://cataas.com/cat/${product.id}?&type=square`;
+type CartItemProps = {
+  product: ProductInCartInterface;
+};
+
+export default function CartItem({ product }: CartItemProps) {
+  const { id, price, count } = product;
+  const imageHref = `https://cataas.com/cat/${id}?&type=square`;
   return (
     <div className="cart-item">
       <img
         className="cart-item__image"
         src={imageHref}
-        alt={`Фото котика id=${product.id}`}
+        alt={`Фото котика id=${id}`}
       />
-      <span className="cart-item__total-price">
-        {product.count * product.price}₽
-      </span>
-      <CartItemControls productId={product.id} withRemove={true} />
+      <span className="cart-item__total-price">{count * price}₽</span>
+      <CartItemControls productId={id} withRemove={true} />
     </div>
   );
 }

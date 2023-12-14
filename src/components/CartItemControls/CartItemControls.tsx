@@ -3,11 +3,15 @@ import { FaTrash } from 'react-icons/fa6';
 import './CartItemControls.scss';
 import { useBoundStore } from '../../store/useBoundStore';
 
-export default function CartItemControls(props: {
+type CartItemControlsProps = {
   productId: string;
   withRemove?: boolean;
-}) {
-  const { productId, withRemove } = props;
+};
+
+export default function CartItemControls({
+  productId,
+  withRemove,
+}: CartItemControlsProps) {
   const productInCart = useBoundStore((state) =>
     state.cartProducts.find((item) => item.id === productId)
   );

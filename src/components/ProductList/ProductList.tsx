@@ -3,8 +3,11 @@ import ProductCard from '../ProductCard/ProductCard';
 
 import './ProductList.scss';
 
-export default function ProductList(props: { products: ProductInterface[] }) {
-  const { products } = props;
+type ProductListProps = {
+  products: ProductInterface[];
+};
+
+export default function ProductList({ products }: ProductListProps) {
   return (
     <ul className="product-list">
       {products.map((product) => {
