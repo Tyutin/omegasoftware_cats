@@ -2,7 +2,7 @@ import { ProductInterface } from '../../../types/product.interface';
 import ReactLoading from 'react-loading';
 
 import './ModalContentProduct.scss';
-import { useState } from 'react';
+import { useImageLoader } from '../../../hooks/useImageLoader';
 
 type ModalContentProductProps = {
   product: ProductInterface;
@@ -12,19 +12,23 @@ export default function ModalContentProduct({
   product,
 }: ModalContentProductProps) {
   const { id, price, tags } = product;
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const productImage = new Image();
-  productImage.src = `https://cataas.com/cat/${id}`;
-  productImage.onload = () => setIsImageLoaded(true);
+  const { loading, errorMessage } = useImageLoader({
+    imageUrl: `https://cataas.com/cat/${id}`,
+  });
   return (
     <div className="modal-content-product">
-      {isImageLoaded ? (
+      {!loading ? (
         <>
-          <img
-            src={`https://cataas.com/cat/${id}`}
-            alt=""
-            className="modal-content-product__image"
-          />
+          {!!errorMessage ? (
+            <span>{errorMessage}</span>
+          ) : (
+            <img
+              src={`https://cataas.com/cat/${id}`}
+              alt=""
+              className="modal-content-product__image"
+            />
+          )}
+
           <div className="modal-content-product__info">
             <span className="modal-content-product__id">ID: "{id}"</span>
             <span className="modal-content-product__price">{price}₽</span>

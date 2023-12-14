@@ -31,4 +31,10 @@
     background-color: transparent;
     cursor: pointer;
   }
+
+  &__error-message {
+    display: flex;
+    align-items: center;
+    height: 200px;
+  }
 }

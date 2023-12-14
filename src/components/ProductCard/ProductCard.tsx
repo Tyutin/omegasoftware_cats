@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useBoundStore } from '../../store/useBoundStore';
 import { ProductInterface } from '../../types/product.interface';
 import Button from '../Button/Button';
@@ -7,13 +6,14 @@ import FavoriteProductControl from '../FavoriteProductControl/FavoriteProductCon
 import ReactLoading from 'react-loading';
 
 import './ProductCard.scss';
+import { useImageLoader } from '../../hooks/useImageLoader';
 
 type ProductCardProps = {
   product: ProductInterface;
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const imageHref = `https://cataas.com/cat/${product.id}?&type=square`;
+  const imageUrl = `https://cataas.com/cat/${product.id}?&type=square`;
   const productInCart = useBoundStore((state) =>
     state.cartProducts.find((item) => item.id === product.id)
   );
@@ -24,19 +24,20 @@ export default function ProductCard({ product }: ProductCardProps) {
   const openModalHandler = () =>
     useBoundStore.setState({ modalContentData: product });
 
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const productImage = new Image();
-  productImage.src = imageHref;
-  productImage.onload = () => setIsImageLoaded(true);
+  const { loading, errorMessage } = useImageLoader({ imageUrl });
   return (
     <div className="product-card">
       <button
         className="product-card__open-modal-button"
         onClick={openModalHandler}
       >
-        {isImageLoaded ? (
+        {!!errorMessage ? (
+          <div className="product-card__error-message">
+            <span>{errorMessage}</span>
+          </div>
+        ) : !loading ? (
           <img
-            src={imageHref}
+            src={imageUrl}
             alt={`Фото котика id=${product.id}`}
             className="product-card__image"
           />
