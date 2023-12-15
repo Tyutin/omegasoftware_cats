@@ -1,5 +1,7 @@
 @import '../../assets/styles/variables.scss';
 
+$MODAL_DESKTOP_MAX_HEIGHT: 98vh;
+
 .modal {
   position: fixed;
   top: 0;
@@ -16,12 +18,21 @@
     position: relative;
     display: flex;
     justify-content: center;
-    max-width: 80%;
-    max-height: 90%;
+    max-width: 80vw;
+    max-height: $MODAL_DESKTOP_MAX_HEIGHT;
     padding: 40px;
     background-color: #fff;
     border-radius: 20px;
     cursor: default;
+
+    @media (max-width: $TABLET_LONG_WIDTH) {
+      max-width: unset;
+      max-height: unset;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px 10px 10px;
+      border-radius: 0;
+    }
   }
 
   &__close-button {
@@ -37,9 +48,11 @@
     &:hover {
       background: $GRAY_HOVER;
     }
+  }
 
-    & svg {
-      display: block;
-    }
+  &__close-icon {
+    display: block;
+    height: 30px;
+    width: 30px;
   }
 }

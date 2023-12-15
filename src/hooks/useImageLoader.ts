@@ -25,8 +25,10 @@ export const useImageLoader = ({ imageUrl, maxRetries = 3, errorMessage = 'Не 
 
     const handleError = () => {
       if (retryCount < maxRetries - 1) {
-        setRetryCount(retryCount + 1);
-        image.src = imageUrl;
+        setTimeout(() => {
+          setRetryCount(retryCount + 1);
+          image.src = imageUrl;
+        }, 1000);
       } else {
         setLoading(false);
         setError(errorMessage);

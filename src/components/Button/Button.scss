@@ -1,13 +1,18 @@
 @import '../../assets/styles/variables.scss';
 
 .button {
-  height: 40px;
+  min-height: 40px;
   padding: 8px;
   border: 1px solid black;
   border-radius: 12px;
   cursor: pointer;
   background-color: #fff;
   transition: all .3s ease;
+
+  @media (max-width: $MOBILE_LARGE_WIDTH) {
+    font-size: 16px;
+    padding: 4px;
+  }
 
   &:hover {
     background-color: $GRAY_HOVER;

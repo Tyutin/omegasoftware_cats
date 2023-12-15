@@ -7,17 +7,15 @@
   padding: 10px;
   border-radius: 10px;
   box-shadow: 6px 6px 10px 3px rgba(208, 205, 221, 0.5);
-  border: 1px solid #fff;
   transition: all .3s ease;
 
-  &:hover {
-    box-shadow: none;
-    border: 1px solid #4980DB;
-  }
+  @media (min-width: ($TABLET_LONG_WIDTH + 1px)) {
+    border: 1px solid #fff;
 
-  &__image {
-    width: 200px;
-    height: 200px;
+    &:hover {
+      box-shadow: none;
+      border: 1px solid #4980DB;
+    }
   }
 
   &__price {
@@ -32,9 +30,26 @@
     cursor: pointer;
   }
 
+  &__image {
+    object-fit: cover;
+    width: 200px;
+
+    @media (max-width: 460px) {
+      width: calc((100vw - 30px) / 2 - 20px);
+    }
+
+    @media (max-width: ($MOBILE_XSMALL_WIDTH - 1px)) {
+      width: calc(100vw - 50px);
+    }
+  }
+
   &__error-message {
     display: flex;
     align-items: center;
     height: 200px;
+
+    @media (max-width: 460px) {
+      height: calc((100vw - 30px) / 2 - 20px);
+    }
   }
 }

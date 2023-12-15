@@ -2,6 +2,7 @@ import { FaTrash } from 'react-icons/fa6';
 
 import './CartItemControls.scss';
 import { useBoundStore } from '../../store/useBoundStore';
+import classNames from 'classnames';
 
 type CartItemControlsProps = {
   productId: string;
@@ -19,8 +20,13 @@ export default function CartItemControls({
   const decrementItemInCart = useBoundStore((state) => state.decrementItem);
   const removeItemInCart = useBoundStore((state) => state.removeItem);
   return (
-    <>
-      <div className="cart-item-controls">
+    <div className="cart-item-controls">
+      <div
+        className={classNames(
+          'cart-item-controls__counter-wrapper',
+          !withRemove && 'cart-item-controls__counter-wrapper_full-width'
+        )}
+      >
         <button
           className="cart-item-controls__counter-button"
           onClick={() => decrementItemInCart(productId)}
@@ -43,6 +49,6 @@ export default function CartItemControls({
           <FaTrash size={'100%'} color={'#9ea2b7'} />
         </button>
       )}
-    </>
+    </div>
   );
 }

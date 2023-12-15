@@ -1,10 +1,21 @@
+@import '../Modal.scss';
+
 .modal-content-product {
   display: flex;
   flex-direction: column;
+  row-gap: 10px;
   max-height: 100%;
+  overflow: auto;
+  width: 100%;
+
+  &__image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
 
   &__image {
-    max-height: 80%;
+    max-height: calc($MODAL_DESKTOP_MAX_HEIGHT - 120px);
     object-fit: contain;
   }
 
@@ -15,7 +26,8 @@
 
   &__tag-list {
     display: flex;
-    column-gap: 5px;
+    flex-wrap: wrap;
+    gap: 5px;
   }
 
   &__tag-element {
@@ -29,5 +41,12 @@
   &__loading-wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    & svg {
+      display: block;
+    }
   }
 }

@@ -11,6 +11,10 @@
   box-shadow: 2px 2px 6px 0px rgba(34, 60, 80, 0.2);
   overflow: hidden;
 
+  @media (max-width: $MOBILE_LARGE_WIDTH) {
+    flex-wrap: wrap;
+  }
+
   &:hover {
     background-color: #f8f8f8;
   }
@@ -24,5 +28,30 @@
   &__total-price {
     font-weight: bold;
     color: $CART_ORANGE;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+
+    @media (max-width: $MOBILE_LARGE_WIDTH) {
+      padding-bottom: 5px;
+      border-bottom: 1px solid $GRAY_HOVER;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 20px;
+
+    @media (max-width: $MOBILE_LARGE_WIDTH) {
+      width: 100%;
+      flex-wrap: wrap;
+      row-gap: 10px;
+    }
   }
 }

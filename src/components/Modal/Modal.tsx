@@ -14,7 +14,7 @@ export default function Modal() {
     <div className="modal" onClick={clearModal}>
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
         <button className="modal__close-button" onClick={clearModal}>
-          <IoMdClose size={30} />
+          <IoMdClose className="modal__close-icon" />
         </button>
         <ModalContentProduct product={modalContentData} />
       </div>

@@ -4,16 +4,21 @@ import Button from '../Button/Button';
 import CartItemControls from '../CartItemControls/CartItemControls';
 import FavoriteProductControl from '../FavoriteProductControl/FavoriteProductControl';
 import ReactLoading from 'react-loading';
+import { useImageLoader } from '../../hooks/useImageLoader';
+import { getImageLink } from '../../utils/getImageLink';
 
 import './ProductCard.scss';
-import { useImageLoader } from '../../hooks/useImageLoader';
 
 type ProductCardProps = {
   product: ProductInterface;
+  imageSize: number;
 };
 
-export default function ProductCard({ product }: ProductCardProps) {
-  const imageUrl = `https://cataas.com/cat/${product.id}?&type=square`;
+export default function ProductCard({ product, imageSize }: ProductCardProps) {
+  const imageUrl = getImageLink({
+    id: product.id,
+    type: 'square',
+  });
   const productInCart = useBoundStore((state) =>
     state.cartProducts.find((item) => item.id === product.id)
   );
@@ -42,7 +47,12 @@ export default function ProductCard({ product }: ProductCardProps) {
             className="product-card__image"
           />
         ) : (
-          <ReactLoading type="spin" width={200} height={200} color="#12c312" />
+          <ReactLoading
+            type="spin"
+            width={imageSize}
+            height={imageSize}
+            color="#12c312"
+          />
         )}
       </button>
       <span className="product-card__price">

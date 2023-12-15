@@ -3,6 +3,7 @@ import ReactLoading from 'react-loading';
 
 import './ModalContentProduct.scss';
 import { useImageLoader } from '../../../hooks/useImageLoader';
+import useWindowWidth from '../../../hooks/useWindowWidth';
 
 type ModalContentProductProps = {
   product: ProductInterface;
@@ -15,6 +16,8 @@ export default function ModalContentProduct({
   const { loading, errorMessage } = useImageLoader({
     imageUrl: `https://cataas.com/cat/${id}`,
   });
+  const windowWidth = useWindowWidth();
+  const imageSize = windowWidth > 420 ? 400 : windowWidth - 20;
   return (
     <div className="modal-content-product">
       {!loading ? (
@@ -22,13 +25,14 @@ export default function ModalContentProduct({
           {!!errorMessage ? (
             <span>{errorMessage}</span>
           ) : (
-            <img
-              src={`https://cataas.com/cat/${id}`}
-              alt=""
-              className="modal-content-product__image"
-            />
+            <div className="modal-content-product__image-wrapper">
+              <img
+                src={`https://cataas.com/cat/${id}`}
+                alt=""
+                className="modal-content-product__image"
+              />
+            </div>
           )}
-
           <div className="modal-content-product__info">
             <span className="modal-content-product__id">ID: "{id}"</span>
             <span className="modal-content-product__price">{price}₽</span>
@@ -53,7 +57,12 @@ export default function ModalContentProduct({
         </>
       ) : (
         <div className="modal-content-product__loading-wrapper">
-          <ReactLoading type="spin" width={400} height={400} color="#12c312" />
+          <ReactLoading
+            type="spin"
+            width={imageSize}
+            height={imageSize}
+            color="#12c312"
+          />
         </div>
       )}
     </div>
