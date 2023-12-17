@@ -9,3 +9,7 @@ $TABLET_LONG_WIDTH: 1024px;
 $TABLET_SHORT_WIDTH: 768px;
 $MOBILE_LARGE_WIDTH: 425px;
 $MOBILE_XSMALL_WIDTH: 320px;
+
+@mixin default-box-shadow {
+  box-shadow: 6px 6px 10px 3px rgba(208, 205, 221, 0.5);
+}

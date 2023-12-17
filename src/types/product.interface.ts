@@ -14,3 +14,17 @@ export interface ProductResponseInterface {
   size: number,
   tags: string[]
 }
+
+export enum SortingVariants {
+  DEFAULT = 'default',
+  PRICE_ASC = 'priceAsc',
+  PRICE_DESC = 'priceDesc',
+  DATE_ASC = 'dateAsc',
+  DATE_DESC = 'dateDesc',
+}
+
+export interface ProductSortingRulesInterface {
+  sortBy: SortingVariants
+  minPrice: number
+  maxPrice: number
+}

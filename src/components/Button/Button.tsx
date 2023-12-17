@@ -2,20 +2,23 @@ import classNames from 'classnames';
 import './Button.scss';
 
 type ButtonProps = {
-  text: string;
   clickHandler: () => void;
   theme?: 'orange' | 'blue' | null;
   additionalClasses?: string | string[];
+  type?: 'button' | 'submit' | 'reset';
+  children?: React.ReactNode;
 };
 
 export default function Button({
-  text,
   clickHandler,
   theme,
   additionalClasses,
+  type,
+  children,
 }: ButtonProps) {
   return (
     <button
+      type={type}
       className={classNames(
         'button',
         {
@@ -25,7 +28,7 @@ export default function Button({
       )}
       onClick={clickHandler}
     >
-      {text}
+      {children}
     </button>
   );
 }

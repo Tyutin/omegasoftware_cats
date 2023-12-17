@@ -1,0 +1,30 @@
+@import '../../assets/styles/variables.scss';
+
+.product-sort {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  position: relative;
+  background-color: #fff;
+
+  &__toggle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+  }
+
+  &__sort-form {
+    @include default-box-shadow;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid $GRAY_HOVER;
+  }
+
+}

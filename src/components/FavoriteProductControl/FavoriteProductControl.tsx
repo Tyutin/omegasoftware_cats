@@ -27,11 +27,12 @@ export default function FavoriteProductControl({
   return (
     <div className="favorite-controls">
       <Button
-        text={productInFavorites ? 'В избранном' : 'В избранное'}
         clickHandler={clickHandler}
         theme={productInFavorites ? 'blue' : null}
         additionalClasses="favorite-controls__button"
-      />
+      >
+        {productInFavorites ? 'В избранном' : 'В избранное'}
+      </Button>
     </div>
   );
 }

@@ -19,4 +19,13 @@
     font-size: 22px;
     margin-left: 5px;
   }
+
+  &__filters {
+    width: 400px;
+    align-self: flex-end;
+
+    @media (max-width: 420px) {
+      width: 100%;
+    }
+  }
 }

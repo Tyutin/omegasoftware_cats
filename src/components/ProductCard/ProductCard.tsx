@@ -62,11 +62,9 @@ export default function ProductCard({ product, imageSize }: ProductCardProps) {
       {productInCart ? (
         <CartItemControls productId={product.id} />
       ) : (
-        <Button
-          text="В корзину"
-          clickHandler={() => addProductToCart(product)}
-          theme="orange"
-        />
+        <Button clickHandler={() => addProductToCart(product)} theme="orange">
+          В корзину
+        </Button>
       )}
     </div>
   );
