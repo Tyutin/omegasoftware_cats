@@ -6,46 +6,27 @@ import './ProductSortForm.scss';
 import {
   ProductSortingRulesInterface,
   SortingVariants,
-} from '../../types/product.interface';
+} from '../../types/product';
 import RangeSelect from '../RangeSelect/RangeSelect';
 import { DEFAULT_PRODUCT_SORTING_RULES } from '../../constants/product';
-
-const defaultSortOptions: { value: SortingVariants; label: string }[] = [
-  {
-    value: SortingVariants.DEFAULT,
-    label: 'По умолчанию',
-  },
-  {
-    value: SortingVariants.PRICE_ASC,
-    label: 'Цена по возрастанию',
-  },
-  {
-    value: SortingVariants.PRICE_DESC,
-    label: 'Цена по убыванию',
-  },
-  // {
-  //   value: SortingVariants.DATE_ASC,
-  //   label: 'Дата по возрастанию',
-  // },
-  // {
-  //   value: SortingVariants.DATE_DESC,
-  //   label: 'Дата по убыванию',
-  // },
-];
 
 export type ProductSortFormProps = {
   sortingRules: ProductSortingRulesInterface;
   setSortingRules: (values: ProductSortingRulesInterface) => void;
   withPriceFilter?: boolean;
+  withDateSort?: boolean;
 };
 
 export default function ProductSortForm({
   sortingRules,
   setSortingRules,
   withPriceFilter = false,
+  withDateSort = false,
 }: ProductSortFormProps) {
   const { sortBy, maxPrice, minPrice } = sortingRules;
-  const sortOptions = defaultSortOptions;
+  const sortOptions = withDateSort
+    ? [...defaultSortOptions, ...dateSortOptions]
+    : defaultSortOptions;
   const formik = useFormik<ProductSortingRulesInterface>({
     initialValues: {
       sortBy,
@@ -102,3 +83,29 @@ export default function ProductSortForm({
     </form>
   );
 }
+
+const defaultSortOptions: { value: SortingVariants; label: string }[] = [
+  {
+    value: SortingVariants.DEFAULT,
+    label: 'По умолчанию',
+  },
+  {
+    value: SortingVariants.PRICE_ASC,
+    label: 'Цена по возрастанию',
+  },
+  {
+    value: SortingVariants.PRICE_DESC,
+    label: 'Цена по убыванию',
+  },
+];
+
+const dateSortOptions: { value: SortingVariants; label: string }[] = [
+  {
+    value: SortingVariants.DATE_ASC,
+    label: 'Дата по возрастанию',
+  },
+  {
+    value: SortingVariants.DATE_DESC,
+    label: 'Дата по убыванию',
+  },
+];

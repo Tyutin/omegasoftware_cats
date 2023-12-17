@@ -1,4 +1,4 @@
-import { ProductInterface } from '../../types/product.interface'
+import { ProductInterface } from '../../types/product'
 
 export type ModalState = {
   modalContentData: ProductInterface | null

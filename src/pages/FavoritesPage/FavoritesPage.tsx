@@ -3,7 +3,7 @@ import ProductList from '../../components/ProductList/ProductList';
 import useSortedProducts from '../../hooks/useSortedProducts';
 import { useBoundStore } from '../../store/useBoundStore';
 import './FavoritesPage.scss';
-import { ProductSortingRulesInterface } from '../../types/product.interface';
+import { ProductSortingRulesInterface } from '../../types/product';
 import { DEFAULT_PRODUCT_SORTING_RULES } from '../../constants/product';
 import ProductSort from '../../components/ProductSort/ProductSort';
 export default function FavoritesPage() {
@@ -26,6 +26,7 @@ export default function FavoritesPage() {
               sortingRules={sortingRules}
               setSortingRules={setSortingRules}
               withPriceFilter={true}
+              withDateSort={true}
             />
           </div>
           <ProductList products={sortedProducts} />

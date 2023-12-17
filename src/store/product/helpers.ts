@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { ProductInCartInterface, ProductInterface, ProductResponseInterface } from '../../types/product.interface';
+import { ProductInCartInterface, ProductInterface, ProductResponseInterface } from '../../types/product';
 import getRandomPrice from '../../utils/getRandomPrice';
 
 export const getTotalProductsCount = async ():Promise<number | AxiosError> => {

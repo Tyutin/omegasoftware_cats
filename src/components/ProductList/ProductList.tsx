@@ -1,5 +1,5 @@
 import useWindowWidth from '../../hooks/useWindowWidth';
-import { ProductInterface } from '../../types/product.interface';
+import { ProductInterface } from '../../types/product';
 import ProductCard from '../ProductCard/ProductCard';
 
 import './ProductList.scss';

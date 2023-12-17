@@ -6,7 +6,7 @@ export const createCartSlice: StateCreator<CartStore, [['zustand/immer', never] 
   cartProducts:[],
   addItem: (product) => set(
     (state) => {
-      state.cartProducts.push({id: product.id, price: product.price, count: 1})
+      state.cartProducts.push({id: product.id, price: product.price, count: 1, addedDate: new Date()})
     }
   ),
   incrementItem: (id) => set(

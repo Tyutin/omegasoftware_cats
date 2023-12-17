@@ -1,4 +1,4 @@
-import { ProductInterface } from '../../types/product.interface';
+import { ProductInterface } from '../../types/product';
 
 import './FavoriteProductControl.scss';
 import Button from '../Button/Button';

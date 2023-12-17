@@ -1,5 +1,5 @@
 import { useBoundStore } from '../../store/useBoundStore';
-import { ProductInterface } from '../../types/product.interface';
+import { ProductInterface } from '../../types/product';
 import Button from '../Button/Button';
 import CartItemControls from '../CartItemControls/CartItemControls';
 import FavoriteProductControl from '../FavoriteProductControl/FavoriteProductControl';

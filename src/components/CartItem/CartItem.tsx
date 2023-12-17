@@ -1,4 +1,4 @@
-import { ProductInCartInterface } from '../../types/product.interface';
+import { ProductInCartInterface } from '../../types/product';
 import CartItemControls from '../CartItemControls/CartItemControls';
 
 import './CartItem.scss';

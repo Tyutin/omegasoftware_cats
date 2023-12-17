@@ -5,7 +5,7 @@ import { useBoundStore } from '../../store/useBoundStore';
 
 import './MainPage.scss';
 import { useState } from 'react';
-import { ProductSortingRulesInterface } from '../../types/product.interface';
+import { ProductSortingRulesInterface } from '../../types/product';
 import useSortedProducts from '../../hooks/useSortedProducts';
 import ProductSort from '../../components/ProductSort/ProductSort';
 import { DEFAULT_PRODUCT_SORTING_RULES } from '../../constants/product';

@@ -2,10 +2,16 @@ export interface ProductInterface {
   id: string,
   tags: string[],
   price: number,
+  addedDate?: Date
 }
 
 export interface ProductInCartInterface extends Omit<ProductInterface, 'tags'> {
+  addedDate: Date
   count: number
+}
+
+export interface ProductInFavoritesInterface extends ProductInterface {
+  addedDate: Date
 }
 
 export interface ProductResponseInterface {

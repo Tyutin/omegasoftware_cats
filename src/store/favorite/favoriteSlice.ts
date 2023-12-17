@@ -10,7 +10,7 @@ export const createFavoriteSlice: StateCreator<FavoriteStore, [['zustand/immer',
       if (alreadyProductInFavorites) {
         return
       }
-      state.favoriteProducts.push(product)
+      state.favoriteProducts.push({...product, addedDate: new Date()})
     }
   ),
   removeProductFromFavorites: (id) => set(

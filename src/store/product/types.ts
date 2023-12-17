@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios'
-import { ProductInterface } from '../../types/product.interface'
+import { ProductInterface } from '../../types/product'
 
 export type ProductState = {
   currentPageProducts: ProductInterface[]

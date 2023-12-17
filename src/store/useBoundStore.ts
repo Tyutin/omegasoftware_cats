@@ -20,6 +20,7 @@ export const useBoundStore = create<ProductStore & CartStore & FavoriteStore & M
     }), {
       name: 'kikiCustomerStore',
       partialize: (state) => ({cartProducts: state.cartProducts, favoriteProducts: state.favoriteProducts}),
+      version: 1
     })
   )
 )

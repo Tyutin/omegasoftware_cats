@@ -3,7 +3,7 @@ import CartItemList from '../../components/CartItemList/CartItemList';
 import { useBoundStore } from '../../store/useBoundStore';
 
 import './CartPage.scss';
-import { ProductSortingRulesInterface } from '../../types/product.interface';
+import { ProductSortingRulesInterface } from '../../types/product';
 import { DEFAULT_PRODUCT_SORTING_RULES } from '../../constants/product';
 import useSortedProducts from '../../hooks/useSortedProducts';
 import ProductSort from '../../components/ProductSort/ProductSort';
@@ -29,6 +29,7 @@ export default function CartPage() {
             <ProductSort
               sortingRules={sortingRules}
               setSortingRules={setSortingRules}
+              withDateSort={true}
             />
           </div>
           <CartItemList products={sortedProducts} />

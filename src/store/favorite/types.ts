@@ -1,7 +1,7 @@
-import { ProductInterface } from '../../types/product.interface'
+import { ProductInterface, ProductInFavoritesInterface } from '../../types/product'
 
 export type FavoriteState = {
-  favoriteProducts: ProductInterface[]
+  favoriteProducts: ProductInFavoritesInterface[]
 }
 
 export type FavoriteActions = {

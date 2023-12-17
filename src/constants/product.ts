@@ -1,4 +1,4 @@
-import { ProductSortingRulesInterface, SortingVariants } from '../types/product.interface';
+import { ProductSortingRulesInterface, SortingVariants } from '../types/product';
 
 export const MIN_PRODUCT_PRICE = 100
 export const MAX_PRODUCT_PRICE = 2000

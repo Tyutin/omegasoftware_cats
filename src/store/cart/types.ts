@@ -1,4 +1,4 @@
-import { ProductInCartInterface, ProductInterface } from '../../types/product.interface'
+import { ProductInCartInterface, ProductInterface } from '../../types/product'
 
 export type CartState = {
   cartProducts: ProductInCartInterface[]
