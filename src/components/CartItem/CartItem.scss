@@ -33,7 +33,8 @@
   &__info {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 5px;
     flex-grow: 1;
 
     @media (max-width: $MOBILE_LARGE_WIDTH) {
@@ -46,7 +47,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    column-gap: 20px;
+    column-gap: 10px;
 
     @media (max-width: $MOBILE_LARGE_WIDTH) {
       width: 100%;

@@ -18,6 +18,7 @@ export default function CartItem({ product }: CartItemProps) {
           src={imageHref}
           alt={`Фото котика id=${id}`}
         />
+        <span className="cart-item__price">{price}₽</span>
       </div>
       <div className="cart-item__controls">
         <span className="cart-item__total-price">{count * price}₽</span>

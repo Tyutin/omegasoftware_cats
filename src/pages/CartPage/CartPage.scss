@@ -9,15 +9,18 @@
     font-weight: 500;
     font-size: 20px;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 5px;
   }
 
   &__total-price-number {
-    color: $CART_ORANGE;
-    font-weight: bold;
     font-size: 22px;
-    margin-left: 5px;
+
+    &_focus {
+      font-weight: bold;
+      color: $CART_ORANGE;
+    }
   }
 
   &__filters {
