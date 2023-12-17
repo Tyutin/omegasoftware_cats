@@ -12,6 +12,9 @@ export default function ProductList({ products }: ProductListProps) {
   const windowWidth = useWindowWidth();
   const productImageSize =
     windowWidth > 460 ? 200 : (windowWidth - 30) / 2 - 20;
+  if (!products.length) {
+    return <span>Продукты не найдены</span>;
+  }
   return (
     <ul className="product-list">
       {products.map((product) => {
