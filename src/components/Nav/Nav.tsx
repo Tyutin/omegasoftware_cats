@@ -9,6 +9,9 @@ export default function Nav() {
           <NavLink to={'/'}>Главная</NavLink>
         </li>
         <li className="nav__el">
+          <NavLink to={'/find'}>Поиск</NavLink>
+        </li>
+        <li className="nav__el">
           <NavLink to={'/favorites'}>Избранное</NavLink>
         </li>
         <li className="nav__el">

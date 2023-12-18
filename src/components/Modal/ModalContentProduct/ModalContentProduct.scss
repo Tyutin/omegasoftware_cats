@@ -1,3 +1,4 @@
+@import '../../../assets/styles/variables.scss';
 @import '../Modal.scss';
 
 .modal-content-product {
@@ -7,6 +8,7 @@
   max-height: 100%;
   overflow: auto;
   width: 100%;
+  padding-bottom: 10px;
 
   &__image-wrapper {
     width: 100%;
@@ -22,6 +24,40 @@
   &__info {
     display: flex;
     flex-direction: column;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      flex-direction: column;
+      align-items: normal;
+      gap: 30px;
+    }
+  }
+
+  &__controls-block {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 200px;
+    row-gap: 10px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  &__form-input {
+    min-height: 40px;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 12px;
   }
 
   &__tag-list {

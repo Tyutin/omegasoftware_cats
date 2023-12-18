@@ -2,13 +2,15 @@ import { IoMdClose } from 'react-icons/io';
 
 import './Modal.scss';
 import { useBoundStore } from '../../store/useBoundStore';
-import ModalContentProduct from './ModalContentCat/ModalContentProduct';
+import ModalContentProduct from './ModalContentProduct/ModalContentProduct';
 
 export default function Modal() {
   const modalContentData = useBoundStore((state) => state.modalContentData);
   if (!modalContentData) {
+    document.body.style.overflow = 'unset';
     return null;
   }
+  document.body.style.overflow = 'hidden';
   const clearModal = () => useBoundStore.setState({ modalContentData: null });
   return (
     <div className="modal" onClick={clearModal}>

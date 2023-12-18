@@ -8,3 +8,5 @@ export const DEFAULT_PRODUCT_SORTING_RULES: ProductSortingRulesInterface = {
   minPrice: MIN_PRODUCT_PRICE,
   maxPrice: MAX_PRODUCT_PRICE
 }
+
+export const SAYS_SEPARATOR = '_says_'
