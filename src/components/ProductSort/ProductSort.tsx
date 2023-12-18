@@ -11,7 +11,7 @@ export default function ProductSort(props: ProductSortFormProps) {
   return (
     <div className="product-sort">
       <Button
-        clickHandler={() => setIsFiltersVisible(!isFiltersVisible)}
+        onClick={() => setIsFiltersVisible(!isFiltersVisible)}
         additionalClasses="product-sort__toggle"
         theme="blue"
       >

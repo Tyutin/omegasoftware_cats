@@ -5,10 +5,10 @@ export type CartState = {
 }
 
 export type CartActions = {
-  addItem: (product: ProductInterface) => void
-  decrementItem: (id: string) => void
-  incrementItem: (id: string) => void
-  removeItem: (id: string) => void
+  addProductToCart: (product: ProductInterface) => void
+  decrementProductInCart: (id: string) => void
+  incrementProductInCart: (id: string) => void
+  removeProductFromCart: (id: string) => void
 }
 
 export type CartStore = CartState & CartActions

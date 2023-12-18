@@ -4,12 +4,12 @@ import { CartStore } from './types'
 
 export const createCartSlice: StateCreator<CartStore, [['zustand/immer', never] ], [], CartStore> = (set) => ({
   cartProducts:[],
-  addItem: (product) => set(
+  addProductToCart: (product) => set(
     (state) => {
       state.cartProducts.push({id: product.id, price: product.price, count: 1, addedDate: new Date()})
     }
   ),
-  incrementItem: (id) => set(
+  incrementProductInCart: (id) => set(
     (state) => {
       const alreadyProductInCart = state.cartProducts.find(item => item.id === id)
       if(!alreadyProductInCart) {
@@ -18,7 +18,7 @@ export const createCartSlice: StateCreator<CartStore, [['zustand/immer', never] 
       alreadyProductInCart.count++
     }
   ),
-  decrementItem: (id) => set(
+  decrementProductInCart: (id) => set(
     (state) => {
       const alreadyProductInCart = state.cartProducts.find(item => item.id === id)
       if (!alreadyProductInCart || !alreadyProductInCart.count) {
@@ -31,7 +31,7 @@ export const createCartSlice: StateCreator<CartStore, [['zustand/immer', never] 
       }
     }
   ),
-  removeItem: (id) => set(
+  removeProductFromCart: (id) => set(
     (state) => {
       const alreadyProductInCart = state.cartProducts.find(item => item.id === id)
       if (!alreadyProductInCart || !alreadyProductInCart.count) {

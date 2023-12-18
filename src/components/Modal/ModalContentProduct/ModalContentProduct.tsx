@@ -35,7 +35,7 @@ export default function ModalContentProduct({
   const productInFavorites = useBoundStore((state) =>
     state.favoriteProducts.find((item) => item.id === id)
   );
-  const addProductToCart = useBoundStore((state) => state.addItem);
+  const addProductToCart = useBoundStore((state) => state.addProductToCart);
 
   if (loading) {
     return (
@@ -99,10 +99,7 @@ export default function ModalContentProduct({
             {productInCart ? (
               <CartItemControls productId={product.id} />
             ) : (
-              <Button
-                clickHandler={() => addProductToCart(product)}
-                theme="orange"
-              >
+              <Button onClick={() => addProductToCart(product)} theme="orange">
                 В корзину
               </Button>
             )}
@@ -147,9 +144,7 @@ function ChangeProductForm({ product }: { product: ProductInterface }) {
         placeholder="Мимими"
         onChange={(event) => formik.setFieldValue('says', event.target.value)}
       />
-      <Button clickHandler={() => {}} type="submit">
-        Применить
-      </Button>
+      <Button type="submit">Применить</Button>
     </form>
   );
 }

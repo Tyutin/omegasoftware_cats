@@ -27,7 +27,7 @@ export default function FavoriteProductControl({
   return (
     <div className="favorite-controls">
       <Button
-        clickHandler={clickHandler}
+        onClick={clickHandler}
         theme={productInFavorites ? 'blue' : null}
         additionalClasses="favorite-controls__button"
       >

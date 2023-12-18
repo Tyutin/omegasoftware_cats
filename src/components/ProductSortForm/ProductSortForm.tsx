@@ -36,16 +36,14 @@ export default function ProductSortForm({
     onSubmit(values) {
       setSortingRules(values);
     },
+    onReset() {
+      setSortingRules(DEFAULT_PRODUCT_SORTING_RULES);
+    },
   });
 
   const handleRangeSelect = (values: number[]) => {
     formik.setFieldValue('minPrice', values[0]);
     formik.setFieldValue('maxPrice', values[1]);
-  };
-
-  const resetSortingRules = () => {
-    formik.setValues(DEFAULT_PRODUCT_SORTING_RULES);
-    formik.handleSubmit();
   };
 
   return (
@@ -74,10 +72,10 @@ export default function ProductSortForm({
           />
         </label>
       )}
-      <Button type="submit" clickHandler={formik.handleSubmit} theme="blue">
+      <Button type="submit" theme="blue">
         Применить
       </Button>
-      <Button type="submit" clickHandler={resetSortingRules}>
+      <Button type="reset" onClick={formik.resetForm}>
         Сбросить
       </Button>
     </form>

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import './Button.scss';
 
 type ButtonProps = {
-  clickHandler: () => void;
+  onClick?: () => void;
   theme?: 'orange' | 'blue' | null;
   additionalClasses?: string | string[];
   type?: 'button' | 'submit' | 'reset';
@@ -10,7 +10,7 @@ type ButtonProps = {
 };
 
 export default function Button({
-  clickHandler,
+  onClick,
   theme,
   additionalClasses,
   type,
@@ -26,7 +26,7 @@ export default function Button({
         },
         additionalClasses
       )}
-      onClick={clickHandler}
+      onClick={onClick}
     >
       {children}
     </button>

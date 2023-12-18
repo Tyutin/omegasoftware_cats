@@ -16,9 +16,15 @@ export default function CartItemControls({
   const productInCart = useBoundStore((state) =>
     state.cartProducts.find((item) => item.id === productId)
   );
-  const incrementItemInCart = useBoundStore((state) => state.incrementItem);
-  const decrementItemInCart = useBoundStore((state) => state.decrementItem);
-  const removeItemInCart = useBoundStore((state) => state.removeItem);
+  const incrementItemInCart = useBoundStore(
+    (state) => state.incrementProductInCart
+  );
+  const decrementItemInCart = useBoundStore(
+    (state) => state.decrementProductInCart
+  );
+  const removeProductFromCart = useBoundStore(
+    (state) => state.removeProductFromCart
+  );
   return (
     <div className="cart-item-controls">
       <div
@@ -44,7 +50,7 @@ export default function CartItemControls({
       {withRemove && (
         <button
           className="cart-item-controls__remove-button"
-          onClick={() => removeItemInCart(productId)}
+          onClick={() => removeProductFromCart(productId)}
         >
           <FaTrash size={'100%'} color={'#9ea2b7'} />
         </button>

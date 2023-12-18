@@ -25,7 +25,7 @@ export default function ProductCard({ product, imageSize }: ProductCardProps) {
   const productInFavorites = useBoundStore((state) =>
     state.favoriteProducts.find((item) => item.id === product.id)
   );
-  const addProductToCart = useBoundStore((state) => state.addItem);
+  const addProductToCart = useBoundStore((state) => state.addProductToCart);
   const openModalHandler = () =>
     useBoundStore.setState({ modalContentData: product });
 
@@ -62,7 +62,7 @@ export default function ProductCard({ product, imageSize }: ProductCardProps) {
       {productInCart ? (
         <CartItemControls productId={product.id} />
       ) : (
-        <Button clickHandler={() => addProductToCart(product)} theme="orange">
+        <Button onClick={() => addProductToCart(product)} theme="orange">
           В корзину
         </Button>
       )}
