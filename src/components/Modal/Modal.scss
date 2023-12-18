@@ -13,6 +13,7 @@ $MODAL_DESKTOP_MAX_HEIGHT: 98vh;
   height: 100vh;
   background-color: #00000061;
   cursor: pointer;
+  z-index: 1;
 
   &__content {
     position: relative;
